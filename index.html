@@ -154,14 +154,20 @@ document.getElementById('formEgresados').addEventListener('submit', async (e)=>{
   // licenciaturas, maestrias, posdoctorados ahora son radio single - ya vienen en obj por FormData
   const HEADERS=["timestamp","folio","nombre","email","telefono","preparatoria","licenciaturas","especialidad_pedagogicas","maestrias","doctorado_educacion","posdoctorados","anio_egreso","diplomado","situacion_laboral","pais_tipo","estado_mx","pais_extranjero","sectores","sector_otro","puesto","puesto_otro","relacion_estudios","impacto_desarrollo","aspectos_valiosos","aspecto_otro","mas_valioso_abierta","recomendaciones_abierta","continuar_contacto","intereses","interes_otro","participacion","participacion_otra"];
   HEADERS.forEach(h=>{ if(!(h in obj)) obj[h]=""; });
+
   console.log(obj);
   const btn=document.getElementById('btnSubmit'); const msg=document.getElementById('msg');
   btn.textContent="Enviando..."; btn.disabled=true;
   try{
-    await fetch(WEB_APP_URL, {method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body: JSON.stringify(obj)});
-    msg.className="p-4 rounded-[12px] text-sm bg-green-50 border border-green-200 text-green-800"; msg.textContent="✅ Enviado! Folio: "+folio+" - Revisa tu Sheet"; msg.classList.remove("hidden");
+    // Método 1: fetch text/plain (evita preflight que bloquea a Apps Script)
+    const res = await fetch(WEB_APP_URL, {method:"POST", mode:"no-cors", headers:{"Content-Type":"text/plain;charset=utf-8"}, body: JSON.stringify(obj)});
+    console.log("Fetch enviado en modo no-cors", res);
+    msg.className="p-4 rounded-[12px] text-sm bg-green-50 border border-green-200 text-green-800"; msg.textContent="✅ Enviado! Folio: "+folio+" - Si no aparece en 10 seg, revisa en Apps Script > Ejecuciones"; msg.classList.remove("hidden");
+    // Pequeña espera y recarga visual
+    setTimeout(()=>{window.scrollTo(0,0);},500);
   }catch(err){msg.className="p-4 rounded-[12px] text-sm bg-red-50 border text-red-800"; msg.textContent="❌ Error: "+err.message; msg.classList.remove("hidden");}
   finally{btn.textContent="Enviar a Google Sheets"; btn.disabled=false;}
+
 });
 showStep(1);
 </script>
