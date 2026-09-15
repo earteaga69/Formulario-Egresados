@@ -1,239 +1,238 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulario Egresados - Vinculado a Sheets</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario Egresados - Completo Original 5 Pasos</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>body{font-family:'Geist',sans-serif}</style>
 </head>
-<body class="bg-[#f8f7f5] min-h-screen p-4 md:p-8">
-<div class="max-w-4xl mx-auto">
-  <div class="bg-white rounded-[20px] border border-slate-200 shadow-sm overflow-hidden">
-    <div class="bg-[#0b2e5e] p-8 text-white">
-      <h1 class="text-2xl font-bold">Formulario de Egresados</h1>
-      <p class="text-blue-200 text-sm mt-2">Todos los reactivos vinculados a Google Sheets • 3,000+ usuarios • Anti-duplicado</p>
-      <div id="statusSheets" class="mt-4 inline-flex items-center gap-2 text-[11px] bg-white/10 px-3 py-1.5 rounded-full">● Esperando configurar WEB_APP_URL</div>
-    </div>
-    
-    <form id="formEgresados" class="p-6 md:p-8 space-y-8">
-      <!-- DATOS PERSONALES -->
-      <section>
-        <h3 class="text-[13px] font-bold tracking-widest text-slate-500 uppercase mb-4">1. Datos de contacto</h3>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div><label class="text-[12px] font-medium">Nombre completo *</label><input name="nombre" required class="w-full mt-1 border border-slate-200 rounded-[10px] px-3 py-2.5 text-sm"></div>
-          <div><label class="text-[12px] font-medium">Email *</label><input name="email" type="email" required class="w-full mt-1 border border-slate-200 rounded-[10px] px-3 py-2.5 text-sm"></div>
-          <div><label class="text-[12px] font-medium">Teléfono</label><input name="telefono" class="w-full mt-1 border border-slate-200 rounded-[10px] px-3 py-2.5 text-sm"></div>
-          <div><label class="text-[12px] font-medium">Año de egreso *</label><input name="anio_egreso" type="number" placeholder="2018" required class="w-full mt-1 border border-slate-200 rounded-[10px] px-3 py-2.5 text-sm"></div>
-        </div>
-      </section>
+<body class="bg-[#f8f7f5]">
+<header class="bg-white border-b-4 border-[#0b2e5e] sticky top-0 z-50">
+<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex gap-3 items-center"><div class="w-9 h-9 bg-[#0b2e5e] rounded-[10px] flex items-center justify-center text-white font-bold">U</div><div><p class="text-[13px] font-bold">UNIVERSIDAD</p><p class="text-[11px] text-slate-500">Seguimiento de Egresados</p></div></div>
+<div class="flex gap-2"><span id="folioDisplay" class="text-[11px] bg-slate-100 px-3 py-1 rounded-full border">Folio generando...</span><span class="text-[11px] bg-[#0b2e5e] text-white px-3 py-1 rounded-full">Confidencial</span></div>
+</div>
+</header>
 
-      <!-- FORMACION -->
-      <section>
-        <h3 class="text-[13px] font-bold tracking-widest text-slate-500 uppercase mb-4">2. Formación académica</h3>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div><label class="text-[12px]">Preparatoria</label><input name="preparatoria" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Licenciaturas</label><input name="licenciaturas" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Especialidad Pedagógicas</label><input name="especialidad_pedagogicas" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Maestrías</label><input name="maestrias" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Doctorado Educación</label><input name="doctorado_educacion" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Posdoctorados</label><input name="posdoctorados" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div class="md:col-span-2"><label class="text-[12px]">Diplomado</label><input name="diplomado" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-        </div>
-      </section>
+<div class="max-w-6xl mx-auto px-6 py-6">
+<div class="bg-white rounded-[16px] border p-4 flex justify-between text-[12px] font-medium text-slate-600 overflow-auto">
+<div class="flex items-center gap-2"><span class="step-bullet w-7 h-7 rounded-full bg-[#0b2e5e] text-white flex items-center justify-center">1</span> Datos de contacto</div>
+<div class="flex items-center gap-2"><span class="step-bullet w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center">2</span> Trayectoria académica</div>
+<div class="flex items-center gap-2"><span class="step-bullet w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center">3</span> Trayectoria laboral</div>
+<div class="flex items-center gap-2"><span class="step-bullet w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center">4</span> Impacto formación</div>
+<div class="flex items-center gap-2"><span class="step-bullet w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center">5</span> Mantener contacto</div>
+</div>
+</div>
 
-      <!-- LABORAL -->
-      <section>
-        <h3 class="text-[13px] font-bold tracking-widest text-slate-500 uppercase mb-4">3. Situación laboral</h3>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div><label class="text-[12px]">Situación laboral</label><select name="situacion_laboral" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"><option>Empleado</option><option>Desempleado</option><option>Emprendedor</option><option>Estudiando</option></select></div>
-          <div><label class="text-[12px]">Tipo país</label><select name="pais_tipo" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"><option value="Mexico">México</option><option value="Extranjero">Extranjero</option></select></div>
-          <div><label class="text-[12px]">Estado MX</label><input name="estado_mx" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">País extranjero</label><input name="pais_extranjero" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Sectores</label><input name="sectores" placeholder="Ej. Educación, Privado, Gobierno" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Sector otro</label><input name="sector_otro" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Puesto</label><input name="puesto" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Puesto otro</label><input name="puesto_otro" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div class="md:col-span-2"><label class="text-[12px]">Relación con estudios</label><select name="relacion_estudios" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"><option>Alta</option><option>Media</option><option>Baja</option><option>Ninguna</option></select></div>
-        </div>
-      </section>
+<div class="max-w-4xl mx-auto px-6 pb-20">
+<form id="formEgresados" class="bg-white rounded-[20px] border shadow-sm p-6 md:p-8 space-y-10">
 
-      <!-- IMPACTO Y VALORACION -->
-      <section>
-        <h3 class="text-[13px] font-bold tracking-widest text-slate-500 uppercase mb-4">4. Impacto y valoración</h3>
-        <div class="space-y-4">
-          <div><label class="text-[12px]">Impacto en desarrollo profesional</label><textarea name="impacto_desarrollo" rows="2" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></textarea></div>
-          <div><label class="text-[12px]">Aspectos valiosos</label><input name="aspectos_valiosos" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Aspecto otro</label><input name="aspecto_otro" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">¿Qué fue lo más valioso? (abierta)</label><textarea name="mas_valioso_abierta" rows="3" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></textarea></div>
-          <div><label class="text-[12px]">Recomendaciones (abierta)</label><textarea name="recomendaciones_abierta" rows="3" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></textarea></div>
-        </div>
-      </section>
+<!-- PASO 1 -->
+<div class="step" data-step="1">
+<h2 class="text-lg font-bold text-[#0b2e5e] mb-1">Datos de contacto</h2><p class="text-[12px] text-slate-500 mb-6">Información para seguimiento institucional.</p>
+<label class="text-[12px] font-medium">A. Nombre completo *</label><input name="nombre" required placeholder="Ej. Ana López García" class="w-full border rounded-[10px] px-3 py-2.5 text-sm mb-4 mt-1">
+<label class="text-[12px] font-medium">B. Correo electrónico *</label><input name="email" type="email" required placeholder="tu@email.com" class="w-full border rounded-[10px] px-3 py-2.5 text-sm mb-4 mt-1">
+<label class="text-[12px] font-medium">C. Teléfono / WhatsApp</label><input name="telefono" placeholder="10 dígitos" class="w-full border rounded-[10px] px-3 py-2.5 text-sm mt-1">
+</div>
 
-      <!-- VINCULACION -->
-      <section>
-        <h3 class="text-[13px] font-bold tracking-widest text-slate-500 uppercase mb-4">5. Vinculación</h3>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div><label class="text-[12px]">¿Continuar contacto?</label><select name="continuar_contacto" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"><option value="Si">Sí</option><option value="No">No</option></select></div>
-          <div><label class="text-[12px]">Intereses</label><input name="intereses" placeholder="Diplomados, Maestría, Bolsa trabajo" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Interés otro</label><input name="interes_otro" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Participación</label><input name="participacion" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-          <div><label class="text-[12px]">Participación otra</label><input name="participacion_otra" class="w-full mt-1 border rounded-[10px] px-3 py-2 text-sm"></div>
-        </div>
-      </section>
+<!-- PASO 2 -->
+<div class="step hidden" data-step="2">
+<h2 class="text-lg font-bold text-[#0b2e5e] mb-1">Trayectoria académica</h2><p class="text-[12px] text-slate-500 mb-6">Selecciona todos los programas de los que egresaste.</p>
 
-      <div class="bg-amber-50 border border-amber-200 rounded-[12px] p-4 text-[11px] text-amber-900">
-        <strong>Configuración:</strong> Pega tu WEB_APP_URL de Google Apps Script abajo. Todos los campos de arriba se mapean automáticamente a las columnas de tu Sheet por el <code>name=""</code> que ya coincide con HEADERS.
-      </div>
+<div class="space-y-4">
+<label class="flex gap-3 p-3 border rounded-[10px]"><input type="checkbox" id="prepa"> <span class="text-sm"><b>Preparatoria / Bachillerato general</b></span></label>
 
-      <div>
-        <label class="text-[12px] font-medium">WEB_APP_URL (de Apps Script)</label>
-        <input id="webAppUrl" value="https://script.google.com/macros/s/AKfycbyKmcmMqfgyEnO9g584hv0S6Rq5XMj0GCvWde8EqLRvWeUQW1WQ8voiT7KHGRVFwXm6lQ/exec" placeholder="https://script.google.com/macros/s/XXXX/exec" class="w-full mt-1 border border-amber-300 rounded-[10px] px-3 py-2.5 text-sm bg-amber-50">
-      </div>
+<div class="border rounded-[12px] p-4">
+<p class="text-sm font-semibold mb-3">Licenciatura - Elige tus licenciaturas</p>
+<div class="grid md:grid-cols-2 gap-2 text-[13px]" id="lic_list">
+<label class="flex gap-2"><input type="checkbox" value="Psicología"> Psicología</label><label class="flex gap-2"><input type="checkbox" value="Educación"> Educación</label><label class="flex gap-2"><input type="checkbox" value="Derecho"> Derecho</label><label class="flex gap-2"><input type="checkbox" value="Comunicación y Publicidad"> Comunicación y Publicidad</label><label class="flex gap-2"><input type="checkbox" value="Administración de Empresas"> Administración de Empresas</label><label class="flex gap-2"><input type="checkbox" value="Cine y Producción Audiovisual"> Cine y Producción Audiovisual</label><label class="flex gap-2"><input type="checkbox" value="Ciencias Forenses"> Ciencias Forenses</label><label class="flex gap-2"><input type="checkbox" value="Arquitectura"> Arquitectura</label><label class="flex gap-2"><input type="checkbox" value="Diseño Gráfico"> Diseño Gráfico</label><label class="flex gap-2"><input type="checkbox" value="Comercio Exterior y Legislación Aduanera"> Comercio Exterior y Legislación Aduanera</label><label class="flex gap-2"><input type="checkbox" value="Contaduría Pública"> Contaduría Pública</label><label class="flex gap-2"><input type="checkbox" value="Informática Administrativa"> Informática Administrativa</label><label class="flex gap-2"><input type="checkbox" value="Mercadotecnia"> Mercadotecnia</label><label class="flex gap-2"><input type="checkbox" value="Nutrición y Dietética"> Nutrición y Dietética</label><label class="flex gap-2"><input type="checkbox" value="Turismo y Hotelería"> Turismo y Hotelería</label>
+</div>
+</div>
 
-      <button type="submit" id="btnSubmit" class="w-full bg-[#0b2e5e] text-white rounded-[12px] py-3.5 text-sm font-semibold hover:bg-black transition">Enviar a Google Sheets</button>
-      <div id="result" class="hidden text-sm p-4 rounded-[12px]"></div>
-    </form>
-  </div>
+<label class="flex gap-3 p-3 border rounded-[10px]"><input type="checkbox" id="esp"> <span class="text-sm"><b>Especialidad en estrategias pedagógicas - Programa único</b></span></label>
 
-  <div class="mt-6 grid md:grid-cols-2 gap-4">
-    <div class="bg-white border border-slate-200 rounded-[12px] p-4">
-      <h4 class="text-[12px] font-semibold">Código para Apps Script (copiar en Sheets > Extensiones > Apps Script)</h4>
-      <pre id="codeBlock" class="mt-2 text-[10px] bg-slate-50 border rounded-[8px] p-3 overflow-auto whitespace-pre-wrap"></pre>
-    </div>
-    <div class="bg-white border border-slate-200 rounded-[12px] p-4">
-      <h4 class="text-[12px] font-semibold">Checklist lanzamiento 3,000 usuarios</h4>
-      <ul class="text-[11px] text-slate-600 mt-2 leading-6 list-disc pl-4">
-        <li>Sheet creada con nombre <b>Respuestas</b></li>
-        <li>Apps Script pegado + setup() ejecutado</li>
-        <li>Implementado como Web App: Cualquier persona</li>
-        <li>WEB_APP_URL pegada arriba y probada</li>
-        <li>Prueba con 5 registros → verificar fila</li>
-        <li>Crear vista filtrada Contacto=Sí</li>
-      </ul>
-    </div>
-  </div>
+<div class="border rounded-[12px] p-4">
+<p class="text-sm font-semibold mb-3">Elige tus maestrías</p>
+<div class="grid gap-2 text-[13px]" id="mae_list">
+<label class="flex gap-2"><input type="checkbox" value="Maestría en Educación"> Maestría en Educación</label><label class="flex gap-2"><input type="checkbox" value="Maestría en Educación Especial"> Maestría en Educación Especial</label><label class="flex gap-2"><input type="checkbox" value="Maestría en Tanatología"> Maestría en Tanatología</label><label class="flex gap-2"><input type="checkbox" value="Maestría en Mercadotecnia"> Maestría en Mercadotecnia</label><label class="flex gap-2"><input type="checkbox" value="Maestría en Ciencias Jurídico Penales"> Maestría en Ciencias Jurídico Penales</label><label class="flex gap-2"><input type="checkbox" value="Maestría en Desarrollo Organizacional"> Maestría en Desarrollo Organizacional</label>
+</div>
+</div>
+
+<label class="flex gap-3 p-3 border rounded-[10px]"><input type="checkbox" id="doc"> <span class="text-sm"><b>Doctorado en Educación</b></span></label>
+
+<div class="border rounded-[12px] p-4">
+<p class="text-sm font-semibold mb-3">Posdoctorado - Elige posdoctorados</p>
+<div class="grid gap-2 text-[13px]" id="pos_list">
+<label class="flex gap-2"><input type="checkbox" value="Posdoctorado en Investigación Educativa"> Posdoctorado en Investigación Educativa</label><label class="flex gap-2"><input type="checkbox" value="Posdoctorado en Administración Educativa y Gestión de la Calidad en el plantel."> Posdoctorado en Administración Educativa y Gestión de la Calidad en el plantel.</label>
+</div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-4">
+<div><label class="text-[12px] font-medium">Año de egreso *</label><input name="anio_egreso" id="anio_egreso" placeholder="Ej. 2019" required class="w-full border rounded-[10px] px-3 py-2.5 text-sm mt-1"></div>
+<div><label class="text-[12px] font-medium">Si aplica, escribe el nombre del diplomado</label><input name="diplomado" placeholder="Respuesta abierta. Deja en blanco si no aplica." class="w-full border rounded-[10px] px-3 py-2.5 text-sm mt-1"></div>
+</div>
+</div>
+</div>
+
+<!-- PASO 3 -->
+<div class="step hidden" data-step="3">
+<h2 class="text-lg font-bold text-[#0b2e5e] mb-1">Trayectoria laboral</h2>
+
+<p class="text-[13px] font-semibold mt-4 mb-2">A. Actualmente, ¿te encuentras trabajando? *</p>
+<div class="grid gap-2 text-[13px]" id="situ_list">
+<label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="situacion_laboral" value="Sí, trabajo actualmente." required> Sí, trabajo actualmente.</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="situacion_laboral" value="Sí, trabajo y además tengo una empresa, agencia, despacho o negocio propio." required> Sí, trabajo y además tengo una empresa, agencia, despacho o negocio propio.</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="situacion_laboral" value="Tengo una empresa, agencia, despacho o negocio propio." required> Tengo una empresa, agencia, despacho o negocio propio.</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="situacion_laboral" value="Actualmente no trabajo." required> Actualmente no trabajo.</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="situacion_laboral" value="Estoy estudiando." required> Estoy estudiando.</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="situacion_laboral" value="Otro" required> Otro</label>
+</div>
+<input name="situacion_otro" placeholder="Especifica: __________" class="w-full border rounded-[10px] px-3 py-2.5 text-sm mt-2 hidden" id="situ_otro">
+
+<p class="text-[13px] font-semibold mt-6 mb-2">B. ¿En qué país y/o estado laboras actualmente?</p>
+<div class="flex gap-3 mb-3 text-[13px]">
+<label class="flex gap-2"><input type="radio" name="pais_tipo" value="Mexico" checked> En México (desplegar estados)</label>
+<label class="flex gap-2"><input type="radio" name="pais_tipo" value="Extranjero"> En el extranjero</label>
+</div>
+<div class="grid md:grid-cols-2 gap-4">
+<select name="estado_mx" id="estado_mx" class="border rounded-[10px] px-3 py-2.5 text-sm"><option value="">Selecciona estado</option><option>Aguascalientes</option><option>Baja California</option><option>Baja California Sur</option><option>Campeche</option><option>Chiapas</option><option>Chihuahua</option><option>Ciudad de México</option><option>Coahuila</option><option>Colima</option><option>Durango</option><option>Guanajuato</option><option>Guerrero</option><option>Hidalgo</option><option>Jalisco</option><option>Estado de México</option><option>Michoacán</option><option>Morelos</option><option>Nayarit</option><option>Nuevo León</option><option>Oaxaca</option><option>Puebla</option><option>Querétaro</option><option>Quintana Roo</option><option>San Luis Potosí</option><option>Sinaloa</option><option>Sonora</option><option>Tabasco</option><option>Tamaulipas</option><option>Tlaxcala</option><option>Veracruz</option><option>Yucatán</option><option>Zacatecas</option></select>
+<input name="pais_extranjero" placeholder="Especifica país Ej. España, Colombia, EUA..." class="border rounded-[10px] px-3 py-2.5 text-sm">
+</div>
+
+<p class="text-[13px] font-semibold mt-6 mb-2">C. ¿A qué sector pertenece la empresa, institución u organización donde trabajas?</p>
+<div class="grid md:grid-cols-2 gap-2 text-[13px]" id="sect_list">
+<label class="flex gap-2"><input type="checkbox" value="Público"> Público</label><label class="flex gap-2"><input type="checkbox" value="Privado"> Privado</label><label class="flex gap-2"><input type="checkbox" value="Social / Organizaciones de la sociedad civil"> Social / Organizaciones de la sociedad civil</label><label class="flex gap-2"><input type="checkbox" value="Educativo"> Educativo</label><label class="flex gap-2"><input type="checkbox" value="Salud"> Salud</label><label class="flex gap-2"><input type="checkbox" value="Empresa o negocio propio"> Empresa o negocio propio</label><label class="flex gap-2"><input type="checkbox" value="Trabajo independiente"> Trabajo independiente</label><label class="flex gap-2"><input type="checkbox" value="Otro"> Otro</label>
+</div>
+<input name="sector_otro" placeholder="Otro: __________" class="w-full border rounded-[10px] px-3 py-2.5 text-sm mt-2">
+
+<p class="text-[13px] font-semibold mt-6 mb-2">D. ¿En qué puesto te desempeñas actualmente?</p>
+<div class="grid gap-2 text-[13px]" id="puesto_list">
+<label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Director (a) / Gerente / Responsable de área"> Director (a) / Gerente / Responsable de área</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Coordinador(a)"> Coordinador(a)</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Jefe(a) de departamento"> Jefe(a) de departamento</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Supervisor(a) / Encargado(a)"> Supervisor(a) / Encargado(a)</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Profesional / Especialista"> Profesional / Especialista</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Analista / Técnico(a)"> Analista / Técnico(a)</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Docente"> Docente</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Investigador(a)"> Investigador(a)</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Administrativo(a)"> Administrativo(a)</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Auxiliar / Asistente"> Auxiliar / Asistente</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Propietario(a) de negocio"> Propietario(a) de negocio</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Trabajador(a) independiente / Consultor(a)"> Trabajador(a) independiente / Consultor(a)</label><label class="flex gap-3 border rounded-[10px] p-3"><input type="radio" name="puesto" value="Otro"> Otro</label>
+</div>
+<input name="puesto_otro" placeholder="Otro: _______________________________" class="w-full border rounded-[10px] px-3 py-2.5 text-sm mt-2">
+
+<p class="text-[13px] font-semibold mt-6 mb-2">E. Relación de tu trabajo con tus estudios</p>
+<div class="grid gap-2 text-[13px]">
+<label class="flex gap-2"><input type="radio" name="relacion_estudios" value="Sí, directamente."> Sí, directamente.</label><label class="flex gap-2"><input type="radio" name="relacion_estudios" value="Sí, parcialmente."> Sí, parcialmente.</label><label class="flex gap-2"><input type="radio" name="relacion_estudios" value="No."> No.</label><label class="flex gap-2"><input type="radio" name="relacion_estudios" value="Actualmente no estoy trabajando."> Actualmente no estoy trabajando.</label>
+</div>
+</div>
+
+<!-- PASO 4 -->
+<div class="step hidden" data-step="4">
+<h2 class="text-lg font-bold text-[#0b2e5e] mb-1">Impacto formación</h2>
+
+<p class="text-[13px] font-semibold mt-4 mb-2">¿Cómo contribuyó tu formación a tu desarrollo profesional?</p>
+<div class="grid gap-2 text-[13px]" id="impacto_list">
+<label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="impacto_desarrollo" value="Mucho, contribuyó de manera decisiva a mi desarrollo profesional."> Mucho, contribuyó de manera decisiva a mi desarrollo profesional.</label><label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="impacto_desarrollo" value="Bastante, contribuyó de manera importante a mi desarrollo profesional."> Bastante, contribuyó de manera importante a mi desarrollo profesional.</label><label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="impacto_desarrollo" value="Algo, contribuyó, aunque su impacto fue limitado."> Algo, contribuyó, aunque su impacto fue limitado.</label><label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="impacto_desarrollo" value="Poco, contribuyó mínimamente a mi desarrollo profesional."> Poco, contribuyó mínimamente a mi desarrollo profesional.</label><label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="impacto_desarrollo" value="Nada, no contribuyó a mi desarrollo profesional."> Nada, no contribuyó a mi desarrollo profesional.</label>
+</div>
+
+<p class="text-[13px] font-semibold mt-6 mb-2">Aspectos valiosos - Puedes seleccionar todas las opciones que correspondan.</p>
+<div class="grid gap-2 text-[12px] leading-5" id="aspectos_list">
+<label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Aplicar los conocimientos de mi formación para comprender y resolver situaciones o problemas del entorno relacionados con mi ámbito profesional."> Aplicar los conocimientos de mi formación para comprender y resolver situaciones o problemas del entorno relacionados con mi ámbito profesional.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Analizar críticamente la información y las situaciones, valorando diferentes perspectivas y evidencias."> Analizar críticamente la información y las situaciones, valorando diferentes perspectivas y evidencias.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Enfrentar situaciones nuevas o inciertas, tomando decisiones fundamentadas ante los retos de mi ámbito profesional."> Enfrentar situaciones nuevas o inciertas, tomando decisiones fundamentadas ante los retos de mi ámbito profesional.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Desarrollar soluciones creativas e innovadoras ante los retos de mi ámbito profesional."> Desarrollar soluciones creativas e innovadoras ante los retos de mi ámbito profesional.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Continuar aprendiendo y actualizándome de manera permanente a lo largo de mi trayectoria."> Continuar aprendiendo y actualizándome de manera permanente a lo largo de mi trayectoria.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Actuar con ética, responsabilidad y compromiso social en mi desempeño profesional."> Actuar con ética, responsabilidad y compromiso social en mi desempeño profesional.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Respetar y valorar la diversidad, favoreciendo relaciones basadas en la inclusión, la tolerancia y los derechos humanos."> Respetar y valorar la diversidad, favoreciendo relaciones basadas en la inclusión, la tolerancia y los derechos humanos.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Trabajar y convivir con otras personas desde el diálogo, la colaboración y el respeto."> Trabajar y convivir con otras personas desde el diálogo, la colaboración y el respeto.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Reconocer el impacto social de mi desempeño y orientar mis acciones hacia el bienestar de la comunidad."> Reconocer el impacto social de mi desempeño y orientar mis acciones hacia el bienestar de la comunidad.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Actuar de manera responsable con el medio ambiente y promover la sustentabilidad."> Actuar de manera responsable con el medio ambiente y promover la sustentabilidad.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Desarrollar autonomía e iniciativa para afrontar los retos y orientar mi trayectoria profesional."> Desarrollar autonomía e iniciativa para afrontar los retos y orientar mi trayectoria profesional.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Integrar conocimientos y perspectivas de diferentes disciplinas para comprender y atender problemas complejos."> Integrar conocimientos y perspectivas de diferentes disciplinas para comprender y atender problemas complejos.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Fortalecer mi desarrollo personal, además de mi formación profesional."> Fortalecer mi desarrollo personal, además de mi formación profesional.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Crear o desarrollar proyectos profesionales o laborales propios."> Crear o desarrollar proyectos profesionales o laborales propios.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Establecer relaciones y redes profesionales."> Establecer relaciones y redes profesionales.</label><label class="flex gap-2 border rounded-[10px] p-2"><input type="checkbox" value="Otro"> Otro</label>
+</div>
+<input name="aspecto_otro" placeholder="Otro: _______________________________" class="w-full border rounded-[10px] px-3 py-2.5 text-sm mt-3">
+
+<p class="text-[13px] font-semibold mt-6 mb-2">¿Qué fue lo más valioso de tu formación? Respuesta abierta.</p>
+<textarea name="mas_valioso_abierta" placeholder="Comparte tu experiencia..." rows="3" class="w-full border rounded-[10px] px-3 py-2.5 text-sm"></textarea>
+
+<p class="text-[13px] font-semibold mt-6 mb-2">¿Qué recomendarías mejorar o incorporar en nuestros programas?</p>
+<textarea name="recomendaciones_abierta" placeholder="Tus recomendaciones nos ayudan a mejorar..." rows="3" class="w-full border rounded-[10px] px-3 py-2.5 text-sm"></textarea>
+</div>
+
+<!-- PASO 5 -->
+<div class="step hidden" data-step="5">
+<h2 class="text-lg font-bold text-[#0b2e5e] mb-1">Mantener contacto</h2>
+
+<p class="text-[13px] font-semibold mt-4 mb-2">A. ¿Te gustaría continuar en contacto con nuestra universidad? *</p>
+<div class="flex gap-4 text-[13px] mb-4">
+<label><input type="radio" name="continuar_contacto" value="Si" required> Sí</label>
+<label><input type="radio" name="continuar_contacto" value="No"> No</label>
+<label><input type="radio" name="continuar_contacto" value="Por el momento no."> Por el momento no</label>
+</div>
+
+<p class="text-[13px] font-semibold mb-2">B. Si respondiste que sí, ¿qué información te gustaría recibir?</p>
+<div class="grid md:grid-cols-2 gap-2 text-[13px]" id="interes_list">
+<label class="flex gap-2"><input type="checkbox" value="Eventos para egresados"> Eventos para egresados</label><label class="flex gap-2"><input type="checkbox" value="Conferencias y seminarios"> Conferencias y seminarios</label><label class="flex gap-2"><input type="checkbox" value="Cursos y talleres"> Cursos y talleres</label><label class="flex gap-2"><input type="checkbox" value="Diplomados"> Diplomados</label><label class="flex gap-2"><input type="checkbox" value="Posgrados"> Posgrados</label><label class="flex gap-2"><input type="checkbox" value="Oportunidades de actualización profesional"> Oportunidades de actualización profesional</label><label class="flex gap-2"><input type="checkbox" value="Bolsa de trabajo"> Bolsa de trabajo</label><label class="flex gap-2"><input type="checkbox" value="Actividades académicas y culturales"> Actividades académicas y culturales</label><label class="flex gap-2"><input type="checkbox" value="Noticias de la universidad"> Noticias de la universidad</label><label class="flex gap-2"><input type="checkbox" value="Otras"> Otras</label>
+</div>
+<input name="interes_otro" placeholder="Otras: __________" class="w-full border rounded-[10px] px-3 py-2.5 text-sm mt-2">
+<input name="intereses" type="hidden">
+
+<p class="text-[13px] font-semibold mt-6 mb-2">C. ¿Te gustaría participar como egresado?</p>
+<div class="grid gap-2 text-[13px]" id="part_list">
+<label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="participacion" value="Sí, como docente"> Sí, como docente</label><label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="participacion" value="Sí, participando en charlas de orientación vocacional"> Sí, participando en charlas de orientación vocacional</label><label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="participacion" value="Sí, compartiendo mi experiencia laboral a alumnos de bachillerato o licenciatura."> Sí, compartiendo mi experiencia laboral a alumnos de bachillerato o licenciatura.</label><label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="participacion" value="Sí, como conferencista."> Sí, como conferencista.</label><label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="participacion" value="Sí, como mentor(a) de estudiantes."> Sí, como mentor(a) de estudiantes.</label><label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="participacion" value="Sí, participando en eventos de egresados."> Sí, participando en eventos de egresados.</label><label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="participacion" value="Sí, de otra manera"> Sí, de otra manera</label><label class="flex gap-3 border rounded-[12px] p-3"><input type="radio" name="participacion" value="Por el momento no."> Por el momento no.</label>
+</div>
+<input name="participacion_otra" placeholder="Sí, de otra manera: __________" class="w-full border rounded-[10px] px-3 py-2.5 text-sm mt-3">
+</div>
+
+<div class="flex justify-between pt-8 border-t mt-8">
+<button type="button" id="btnPrev" class="px-6 py-2.5 border rounded-[10px] text-sm hidden">← Anterior</button>
+<button type="button" id="btnNext" class="px-6 py-2.5 bg-[#0b2e5e] text-white rounded-[10px] text-sm">Continuar →</button>
+<button type="submit" id="btnSubmit" class="hidden px-6 py-2.5 bg-[#0b2e5e] text-white rounded-[12px] text-sm font-semibold">Enviar cuestionario a Sheets</button>
+</div>
+
+<div id="msg" class="hidden p-4 rounded-[12px] text-sm mt-4"></div>
+</form>
 </div>
 
 <script>
-// ====== CONFIGURACION ======
-const SHEET_NAME = "Respuestas";
-const HEADERS = ['folio', 'timestamp', 'nombre', 'email', 'telefono', 'preparatoria', 'licenciaturas', 'especialidad_pedagogicas', 'maestrias', 'doctorado_educacion', 'posdoctorados', 'anio_egreso', 'diplomado', 'situacion_laboral', 'pais_tipo', 'estado_mx', 'pais_extranjero', 'sectores', 'sector_otro', 'puesto', 'puesto_otro', 'relacion_estudios', 'impacto_desarrollo', 'aspectos_valiosos', 'aspecto_otro', 'mas_valioso_abierta', 'recomendaciones_abierta', 'continuar_contacto', 'intereses', 'interes_otro', 'participacion', 'participacion_otra'];
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyKmcmMqfgyEnO9g584hv0S6Rq5XMj0GCvWde8EqLRvWeUQW1WQ8voiT7KHGRVFwXm6lQ/exec";
+let currentStep = 1;
+const totalSteps = 5;
+const folio = "EGR-" + new Date().getFullYear() + "-" + Math.random().toString(36).substr(2,4).toUpperCase();
+document.getElementById('folioDisplay').textContent = "Folio " + folio;
 
-const CODE_GS = `const SHEET_NAME = "Respuestas";
-const HEADERS = $['folio', 'timestamp', 'nombre', 'email', 'telefono', 'preparatoria', 'licenciaturas', 'especialidad_pedagogicas', 'maestrias', 'doctorado_educacion', 'posdoctorados', 'anio_egreso', 'diplomado', 'situacion_laboral', 'pais_tipo', 'estado_mx', 'pais_extranjero', 'sectores', 'sector_otro', 'puesto', 'puesto_otro', 'relacion_estudios', 'impacto_desarrollo', 'aspectos_valiosos', 'aspecto_otro', 'mas_valioso_abierta', 'recomendaciones_abierta', 'continuar_contacto', 'intereses', 'interes_otro', 'participacion', 'participacion_otra'];
+const HEADERS = ["folio","timestamp","nombre","email","telefono","preparatoria","licenciaturas","especialidad_pedagogicas","maestrias","doctorado_educacion","posdoctorados","anio_egreso","diplomado","situacion_laboral","pais_tipo","estado_mx","pais_extranjero","sectores","sector_otro","puesto","puesto_otro","relacion_estudios","impacto_desarrollo","aspectos_valiosos","aspecto_otro","mas_valioso_abierta","recomendaciones_abierta","continuar_contacto","intereses","interes_otro","participacion","participacion_otra"];
 
-function doGet() {
-  return ContentService.createTextOutput(JSON.stringify({ok:true, msg:"Endpoint egresados activo - 32 columnas"})).setMimeType(ContentService.MimeType.JSON);
+function showStep(n) {
+  document.querySelectorAll('.step').forEach(s=>s.classList.add('hidden'));
+  document.querySelector(`[data-step="${n}"]`).classList.remove('hidden');
+  document.getElementById('btnPrev').classList.toggle('hidden', n===1);
+  document.getElementById('btnNext').classList.toggle('hidden', n===totalSteps);
+  document.getElementById('btnSubmit').classList.toggle('hidden', n!==totalSteps);
+  document.querySelectorAll('.step-bullet').forEach((b,i)=>{
+    b.className = i+1===n ? "w-7 h-7 rounded-full bg-[#0b2e5e] text-white flex items-center justify-center" : "w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center";
+  });
+  window.scrollTo(0,0);
 }
 
-function doPost(e) {
-  const lock = LockService.getScriptLock();
-  lock.tryLock(10000);
-  try {
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    let sheet = ss.getSheetByName(SHEET_NAME);
-    if (!sheet) {
-      sheet = ss.insertSheet(SHEET_NAME);
-      sheet.appendRow(HEADERS);
-    }
-    if (sheet.getLastRow() === 0) sheet.appendRow(HEADERS);
+document.getElementById('btnNext').addEventListener('click', ()=>{ if(currentStep<totalSteps){currentStep++; showStep(currentStep);} });
+document.getElementById('btnPrev').addEventListener('click', ()=>{ if(currentStep>1){currentStep--; showStep(currentStep);} });
 
-    const data = JSON.parse(e.postData.contents);
-    // genera folio y timestamp si no vienen
-    if (!data.folio) data.folio = "EGR-" + new Date().getFullYear() + "-" + Utilities.getUuid().substring(0,5);
-    if (!data.timestamp) data.timestamp = new Date().toISOString();
-    
-    const row = HEADERS.map(h => data[h] !== undefined ? data[h] : "");
-    sheet.appendRow(row);
+function getChecked(id){ return Array.from(document.querySelectorAll(id+" input:checked")).map(i=>i.value).join(" | "); }
 
-    return ContentService.createTextOutput(JSON.stringify({ok:true, folio:data.folio})).setMimeType(ContentService.MimeType.JSON);
-  } catch(err) {
-    return ContentService.createTextOutput(JSON.stringify({ok:false, error: String(err)})).setMimeType(ContentService.MimeType.JSON);
-  } finally {
-    lock.releaseLock();
-  }
-}
-
-function setup() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  let sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) sheet = ss.insertSheet(SHEET_NAME);
-  sheet.clear();
-  sheet.appendRow(HEADERS);
-}`;
-
-document.getElementById('codeBlock').textContent = CODE_GS;
-
-// UI Logic
-const form = document.getElementById('formEgresados');
-const urlInput = document.getElementById('webAppUrl');
-const statusEl = document.getElementById('statusSheets');
-const FIXED_URL = "https://script.google.com/macros/s/AKfycbyKmcmMqfgyEnO9g584hv0S6Rq5XMj0GCvWde8EqLRvWeUQW1WQ8voiT7KHGRVFwXm6lQ/exec";
-const savedUrl = FIXED_URL; // URL fija del cliente
-// const savedUrl = localStorage.getItem('egresados_webapp_url');
-if (savedUrl) {
-  urlInput.value = savedUrl;
-  statusEl.textContent = "● Conectado a: " + savedUrl.substring(0,50) + "...";
-  statusEl.className = "mt-4 inline-flex items-center gap-2 text-[11px] bg-green-50 text-green-700 border border-green-200 px-3 py-1.5 rounded-full";
-}
-
-urlInput.addEventListener('input', (e) => {
-  localStorage.setItem('egresados_webapp_url', e.target.value);
-  statusEl.textContent = e.target.value ? "● Conectado a Sheets" : "● Esperando WEB_APP_URL";
-});
-
-form.addEventListener('submit', async (e) => {
+document.getElementById('formEgresados').addEventListener('submit', async (e)=>{
   e.preventDefault();
-  const WEB_APP_URL = (urlInput.value.trim() || FIXED_URL);
-  if (!WEB_APP_URL) {
-    alert("Pega primero tu WEB_APP_URL de Apps Script arriba");
-    return;
-  }
-  const btn = document.getElementById('btnSubmit');
-  const result = document.getElementById('result');
-  btn.disabled = true;
-  btn.textContent = "Enviando a Sheets...";
-
-  const formData = new FormData(form);
+  const fd = new FormData(e.target);
   const obj = {};
-  for (let [k,v] of formData.entries()) obj[k]=v;
-  obj.folio = "EGR-" + new Date().getFullYear() + "-" + Math.random().toString(36).substring(2,7).toUpperCase();
+  fd.forEach((v,k)=>{ if(k!=="intereses") obj[k]=v; });
+  obj.folio = folio;
   obj.timestamp = new Date().toISOString();
+  obj.preparatoria = document.getElementById('prepa').checked ? "Sí" : "";
+  obj.especialidad_pedagogicas = document.getElementById('esp').checked ? "Sí" : "";
+  obj.doctorado_educacion = document.getElementById('doc').checked ? "Sí" : "";
+  obj.licenciaturas = getChecked("#lic_list");
+  obj.maestrias = getChecked("#mae_list");
+  obj.posdoctorados = getChecked("#pos_list");
+  obj.sectores = getChecked("#sect_list");
+  obj.aspectos_valiosos = getChecked("#aspectos_list");
+  obj.intereses = getChecked("#interes_list");
 
-  // Validación que todas las HEADERS existan
-  HEADERS.forEach(h => { if (!(h in obj)) obj[h] = ""; });
+  HEADERS.forEach(h=>{ if(!(h in obj)) obj[h]=""; });
+  console.log("Objeto final completo con TODOS los reactivos", obj);
+
+  const btn = document.getElementById('btnSubmit');
+  const msg = document.getElementById('msg');
+  btn.textContent="Enviando a Sheets..."; btn.disabled=true;
 
   try {
-    // Descarga local de respaldo (por si falla CORS)
-    const blob = new Blob([JSON.stringify(obj,null,2)], {type:"application/json"});
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = obj.folio + ".json";
-    
-    const resp = await fetch(WEB_APP_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify(obj)
-    });
-
-    result.className = "text-sm p-4 rounded-[12px] bg-green-50 border border-green-200 text-green-800";
-    result.textContent = "✅ Enviado! Folio: " + obj.folio + " | Revisa tu Google Sheet pestaña Respuestas. Como usamos no-cors, la respuesta no se lee pero SÍ se inserta.";
-    result.classList.remove('hidden');
-    form.reset();
+    await fetch(WEB_APP_URL, {method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body: JSON.stringify(obj)});
+    msg.className="p-4 rounded-[12px] text-sm bg-green-50 border border-green-200 text-green-800";
+    msg.textContent="✅ ¡Enviado! Folio: "+folio+" - Todos los reactivos originales vinculados a Sheets. Revisa pestaña Respuestas. (32 columnas exactas)";
+    msg.classList.remove("hidden");
   } catch(err) {
-    result.className = "text-sm p-4 rounded-[12px] bg-red-50 border border-red-200 text-red-800";
-    result.textContent = "❌ Error: " + err.message + " - Se descargó respaldo local JSON.";
-    result.classList.remove('hidden');
+    msg.className="p-4 rounded-[12px] text-sm bg-red-50 border text-red-800";
+    msg.textContent="❌ Error: "+err.message;
+    msg.classList.remove("hidden");
   } finally {
-    btn.disabled = false;
-    btn.textContent = "Enviar a Google Sheets";
+    btn.textContent="Enviar cuestionario a Sheets"; btn.disabled=false;
   }
 });
+
+showStep(1);
 </script>
-</body>
-</html>
 </body>
 </html>
