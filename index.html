@@ -144,7 +144,7 @@
 </div>
 
 <script>
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyKmcmMqfgyEnO9g584hv0S6Rq5XMj0GCvWde8EqLRvWeUQW1WQ8voiT7KHGRVFwXm6lQ/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx6UoLZniXAXffKxRhpY6Z70q2WtYtlx7VPK16UNJYShD_4C40J2zWVfItCpe0_NiYC/exec";
 let cur=1;
 function show(n){cur=n; document.querySelectorAll('.s').forEach(s=>s.classList.add('hidden')); document.querySelector('[data-s="'+n+'"]').classList.remove('hidden'); document.getElementById('prev').classList.toggle('hidden', n==1); document.getElementById('next').classList.toggle('hidden', n==5); document.getElementById('submit').classList.toggle('hidden', n!=5); document.querySelectorAll('.stepb').forEach((b,i)=>{b.className = (i+1)==n ? "stepb px-4 py-2 rounded-full text-xs font-bold bg-[#0b2e5e] text-white" : "stepb px-4 py-2 rounded-full text-xs bg-slate-100"}); window.scrollTo(0,0);}
 document.getElementById('next').onclick=()=>{if(cur<5) show(cur+1)};
